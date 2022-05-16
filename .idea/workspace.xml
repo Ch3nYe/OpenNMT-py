@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c7ea862e-e931-4799-8fa8-6b33d86f2f5d" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="4mxnckh6" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29EACHgP2tRJdX12ukKzi4hztHg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/onmt/bin/translate.py" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProject\temp\OpenNMT-py" />
+      <recent name="D:\PythonProject\temp\OpenNMT-py\data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.translate_gcn">
+    <configuration name="train_base_rnn" type="PythonConfigurationType" factoryName="Python">
+      <module name="OpenNMT-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/onmt/bin/train.py" />
+      <option name="PARAMETERS" value="-encoder_type rnn -decoder_type rnn -rnn_size 128 -src_word_vec_size 128 -data data/processed/data-len1500-2 -save_model save_models/model_1.2.0_test -train_steps 10000 -learning_rate_decay 1 -optim adam -learning_rate 0.001 -batch_size 64 -valid_steps 50000 -valid_batch_size 4 -report_every 1 -gcn_path save_models/encoder_model_I32.pt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_gcn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OpenNMT-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/onmt/bin/train.py" />
+      <option name="PARAMETERS" value="-encoder_type gcnrnn -decoder_type rnn -rnn_size 128 -src_word_vec_size 128 -data data/processed/data -save_model save_models/model_1.2.0_test -train_steps 20 -learning_rate_decay 1 -optim adam -learning_rate 0.001 -batch_size 8 -valid_steps 20 -valid_batch_size 32 -report_every 1 -gcn_path save_models/encoder_model_I32.pt -src_vocab data/processed/data.vocab.pt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="translate_gcn" type="PythonConfigurationType" factoryName="Python">
+      <module name="OpenNMT-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/onmt/bin/translate.py" />
+      <option name="PARAMETERS" value="-model save_models/model_1.2.0_test_step_20.pt -src data/test/src-test.txt -output data/results/pred_test_model_1.2.0_test_step_20.txt -min_length 1 -max_length 30 -beam_size 10 -batch_size 32 -n_best 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.train_base_rnn" />
+      <item itemvalue="Python.translate_gcn" />
+      <item itemvalue="Python.train_gcn" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train_gcn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7ea862e-e931-4799-8fa8-6b33d86f2f5d" name="Changes" comment="" />
+      <created>1652667742491</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652667742491</updated>
+      <workItem from="1652667753070" duration="5356000" />
+    </task>
+    <task id="LOCAL-00001" summary="add gcnrnn encoder&#10;gcnrnn encoder is a rnn based encoder with gcn model as a embedding layer.&#10;recover --brnn option.&#10;add encoder_type &quot;gcnrnn&quot;.&#10;add --gcn_path option">
+      <created>1652668052374</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652668052374</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add gcnrnn encoder&#10;gcnrnn encoder is a rnn based encoder with gcn model as a embedding layer.&#10;recover --brnn option.&#10;add encoder_type &quot;gcnrnn&quot;.&#10;add --gcn_path option">
+      <created>1652669804136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652669804136</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add annotation">
+      <created>1652670346427</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652670346427</updated>
+    </task>
+    <task id="LOCAL-00004" summary="delete useless model_1.2.0_test_step_20.pt">
+      <created>1652672187424</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652672187424</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add gcnrnn encoder&#10;add annotation in ggnn_encoder.py&#10;add gcn model in save_models">
+      <created>1652673563915</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652673563915</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add gcnrnn encoder&#10;gcnrnn encoder is a rnn based encoder with gcn model as a embedding layer.&#10;recover --brnn option.&#10;add encoder_type &quot;gcnrnn&quot;.&#10;add --gcn_path option" />
+    <MESSAGE value="add annotation" />
+    <MESSAGE value="delete useless model_1.2.0_test_step_20.pt" />
+    <MESSAGE value="add gcnrnn encoder&#10;add annotation in ggnn_encoder.py&#10;add gcn model in save_models" />
+    <option name="LAST_COMMIT_MESSAGE" value="add gcnrnn encoder&#10;add annotation in ggnn_encoder.py&#10;add gcn model in save_models" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OpenNMT_py$train_base_rnn.coverage" NAME="train_base_rnn Coverage Results" MODIFIED="1652669312839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/OpenNMT_py$train.coverage" NAME="train_gcn Coverage Results" MODIFIED="1652669255149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/OpenNMT_py$translate_gcn.coverage" NAME="translate_gcn Coverage Results" MODIFIED="1652669411866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+  </component>
+</project>
