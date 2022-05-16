@@ -10,6 +10,7 @@ from onmt.translate.translator import build_translator
 import onmt.opts as opts
 from onmt.utils.parse import ArgumentParser
 
+from onmt.encoders.GraphCL import *
 
 def translate(opt):
     ArgumentParser.validate_translate_opts(opt)

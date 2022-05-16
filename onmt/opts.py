@@ -71,7 +71,7 @@ def model_opts(parser):
               help='Data type of the model.')
 
     group.add('--encoder_type', '-encoder_type', type=str, default='rnn',
-              choices=['rnn', 'brnn', 'ggnn', 'mean', 'transformer', 'cnn'],
+              choices=['rnn', 'brnn', 'ggnn', 'mean', 'transformer', 'cnn', 'gcnrnn'],
               help="Type of encoder layer to use. Non-RNN layers "
                    "are experimental. Options are "
                    "[rnn|brnn|ggnn|mean|transformer|cnn].")
@@ -122,7 +122,7 @@ def model_opts(parser):
     # group.add('--residual', '-residual',   action="store_true",
     #                     help="Add residual connections between RNN layers.")
 
-    group.add('--brnn', '-brnn', action=DeprecateAction,
+    group.add('--brnn', '-brnn', action="store_true", default=False,
               help="Deprecated, use `encoder_type`.")
 
     group.add('--context_gate', '-context_gate', type=str, default=None,
@@ -149,6 +149,10 @@ def model_opts(parser):
     # using edge information which requires parsing the input sequence.
     group.add('--src_vocab', '-src_vocab', default="",
               help="Path to an existing source vocabulary. Format: "
+                   "one word per line.")
+    # The gcnrnn encoder use gcn_path to torch.load the gcn model.
+    group.add('--gcn_path', '-gcn_path', default="",
+              help="Path to an existing gcn model. Format: "
                    "one word per line.")
 
     # Attention options

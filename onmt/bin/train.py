@@ -16,6 +16,7 @@ from onmt.inputters.inputter import build_dataset_iter, patch_fields, \
 
 from itertools import cycle
 
+from onmt.encoders.GraphCL import *
 
 # Fix CPU tensor sharing strategy
 torch.multiprocessing.set_sharing_strategy('file_system')
