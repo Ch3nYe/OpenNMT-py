@@ -72,10 +72,10 @@ class GGNNEncoder(EncoderBase):
     Args:
        rnn_type (str):
           style of recurrent unit to use, one of [LSTM]
-       state_dim (int) : Number of state dimensions in nodes
+       state_dim (int) : Number of state dimensions in nodes, aka node embedding size in prop state matrix.
        n_edge_types (int) : Number of edge types
        bidir_edges (bool): True if reverse edges should be autocreated
-       n_node (int) : Max nodes in graph
+       n_node (int) : Max nodes in graph, aka max number of node in graphs
        bridge_extra_node (bool): True indicates only 1st extra node
           (after token listing) should be used for decoder init.
        n_steps (int): Steps to advance graph encoder for stabilization
@@ -108,7 +108,7 @@ class GGNNEncoder(EncoderBase):
         idx = 0
         self.COMMA = -1
         self.DELIMITER = -1
-        self.idx2num = []
+        self.idx2num = [] # forward 过程中 通过idx 找到对应的数字, 即通过token在vocab中的索引号找到对应的数字
         for ln in f:
             ln = ln.strip('\n')
             if ln == ",":
@@ -154,7 +154,7 @@ class GGNNEncoder(EncoderBase):
         self._check_args(src, lengths)
         nodes = self.n_node
         batch_size = src.size()[1]
-        first_extra = np.zeros(batch_size, dtype=np.int32)
+        first_extra = np.zeros(batch_size, dtype=np.int32) # first_extra[i] 是第i个data的第一个<EOT>在其所在序列的位置，即节点序列的长度
         prop_state = np.zeros((batch_size, nodes, self.state_dim),
                               dtype=np.int32)
         edges = np.zeros((batch_size, nodes, nodes*self.n_edge_types*2),
@@ -170,15 +170,15 @@ class GGNNEncoder(EncoderBase):
             flags_done = False
             edge = 0
             source_node = -1
-            for j in range(len(npsrc)):
+            for j in range(len(npsrc)): # 遍历序列中的每个token
                 token = npsrc[j][i]
-                if not tokens_done:
+                if not tokens_done: # 读到第一个<EOT>结束
                     if token == self.DELIMITER:
                         tokens_done = True
                         first_extra[i] = j
                     else:
-                        prop_state[i][j][token] = 1
-                elif token == self.DELIMITER:
+                        prop_state[i][j][token] = 1 # 初始化节点状态矩阵
+                elif token == self.DELIMITER: # 读到第二个<EOT>进入这里
                     flags += 1
                     flags_done = True
                     assert flags <= nodes
@@ -190,8 +190,9 @@ class GGNNEncoder(EncoderBase):
                     else:
                         num = self.idx2num[token]
                         if num >= 0:
-                            prop_state[i][flags][num+self.DELIMITER] = 1
+                            prop_state[i][flags][num+self.DELIMITER] = 1 # 第i个data的第flags个词的 第num+self.DELIMITER个特征 one-hot encoding
                         flags += 1
+                # 以下两个分支处理边
                 elif token == self.COMMA:
                     edge += 1
                     assert source_node == -1, 'Error in graph edge input'
